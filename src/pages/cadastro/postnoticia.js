@@ -5,6 +5,7 @@ export default function Postnoticia() {
     const [titulonoticia, setTitulo] = useState("");
     const [conteudonoticia, setConteudo] = useState("");
     const [tiponoticia, setTipo] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const enviarPost = async (e) => {
         e.preventDefault();
@@ -29,12 +30,20 @@ export default function Postnoticia() {
         } catch (err) {
             console.error("Erro ao enviar:", err);
             alert("Erro ao enviar notícia.");
-        }finally {
+        } finally {
             setLoading(false);
         }
     }
     return (
         <Container>
+            {/* Modal */}
+            <Modal show={loading} centered backdrop="static" keyboard={false}>
+                <Modal.Body className="text-center">
+                    <Spinner animation="border" role="status" />
+                    <p className="mt-3 mb-0">Enviando dados, aguarde...</p>
+                </Modal.Body>
+            </Modal>
+            {/* FORM */}
             <Row>
                 <Col xs={{ span: 6, offset: 3 }}>
                     {/* aqui alteração para api */}
