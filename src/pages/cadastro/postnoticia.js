@@ -30,7 +30,7 @@ export default function Postnoticia() {
             <Row>
                 <Col xs={{ span: 6, offset: 3 }}>
                     {/* aqui alteração para api */}
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={enviarPost}>
                         <Form.Group className="mb-3" controlId="titulonoticia">
                             <Form.Label>Título da Notícia</Form.Label>
                             <Form.Control type="text" className='bg-warning-subtle' placeholder="Informe o Título da Notícia" />
