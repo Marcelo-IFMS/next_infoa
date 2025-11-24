@@ -6,7 +6,7 @@ export default function Postnoticia() {
     const [conteudonoticia, setConteudo] = useState("");
     const [tiponoticia, setTipo] = useState("");
     const [loading, setLoading] = useState(false);
-
+ 
     const enviarPost = async (e) => {
         e.preventDefault();
         setLoading(true);
