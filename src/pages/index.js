@@ -2,7 +2,7 @@ import { Container, Row } from 'react-bootstrap';
 import Cards from './components/cards';
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch('https://portalnoticiasinfoa.vercel.app/api/noticias/apinoticias')
+  const res = await fetch('https://g3-snowy.vercel.app/noticias')
   const repo = await res.json()
   // Pass data to the page via props
   return { props: { noticias: repo } }
