@@ -6,11 +6,11 @@ export async function getServerSideProps(req) {
     return { props: { noticia: repo } }
 }
 export default function Page({ noticia }) {
-    console.log(noticia)
+console.log(noticia._id);
     return <>
         <Container>
-            <Cards idnoticia={noticia._id} /* alterar aqui */titulonoticia={noticia.titulonoticia}
-                tiponoticia={noticia.tiponoticia}  conteudonoticia={noticia.conteudonoticia}
+            <Cards idnoticia={noticia._id} /* alterar aqui */ titulonoticia={noticia.titulonoticia}
+                tiponoticia={noticia.tiponoticia} conteudonoticia={noticia.conteudonoticia}
                 datahoracadastro={noticia.datahoracadastro} />
         </Container>
     </>
