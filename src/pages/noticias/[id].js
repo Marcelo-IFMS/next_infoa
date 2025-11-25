@@ -8,7 +8,7 @@ export async function getServerSideProps(req) {
 export default function Page({ noticia }) {
     return <>
         <Container>
-            <Cards idnoticia={noticia.idnoticia} titulonoticia={noticia.titulonoticia}
+            <Cards idnoticia={noticia._id} /* alterar aqui */titulonoticia={noticia.titulonoticia}
                 tiponoticia={noticia.tiponoticia}  conteudonoticia={noticia.conteudonoticia}
                 datahoracadastro={noticia.datahoracadastro} />
         </Container>
