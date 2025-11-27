@@ -31,8 +31,6 @@ export default function Postnoticia() {
         } catch (err) {
             console.error("Erro ao enviar:", err);
             //alert("Erro ao enviar notícia.");
-        } finally {
-            setShow(false);
         }
     }
     return (
