@@ -27,7 +27,12 @@ export default function Cards(props) {
                         {props.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer>{new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)}</Card.Footer>
+                <Card.Footer>
+                    {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
+                        ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
+                        : "Data inválida"}
+                </Card.Footer>
+
             </Card>
         </Col>
     </>
