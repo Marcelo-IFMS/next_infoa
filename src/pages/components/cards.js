@@ -1,34 +1,41 @@
 "use client";
 import { Card, Col } from "react-bootstrap";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export default function Cards(props) {
+export default function Cards({ noticia }) {
     const [truncate, setTruncate] = useState("");
     const pathname = usePathname();
+
     useEffect(() => {
-        if (pathname === "/") {
-            setTruncate("text-truncate");
-        } else {
-            setTruncate("");
-        }
+        setTruncate(pathname === "/" ? "text-truncate" : "");
     }, [pathname]);
-    return <>
-        <Col key={props.idnoticia}>
+
+    return (
+        <Col>
             <Card>
                 <Card.Header className="text-center fw-bold bg-warning-subtle">
-                    <a href={`/noticias/${props.idnoticia}`}>{/* altera aqui */}{props.titulonoticia}</a>
+                    <a href={`/noticias/${noticia._id}`}>
+                        {noticia.titulonoticia}
+                    </a>
                 </Card.Header>
+
                 <Card.Body>
                     <Card.Title className="text-capitalize">
-                        <a href={`/noticias/tipo/${props.tiponoticia}`}>{props.tiponoticia}</a>
+                        <a href={`/noticias/tipo/${noticia.tiponoticia}`}>
+                            {noticia.tiponoticia}
+                        </a>
                     </Card.Title>
+
                     <Card.Text className={truncate}>
-                        {props.conteudonoticia}
+                        {noticia.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer>{new Date(props.datahoracadastro).toLocaleString("pt-br")}</Card.Footer>
+
+                <Card.Footer>
+                    {new Date(noticia.datahoracadastro).toLocaleString("pt-br")}
+                </Card.Footer>
             </Card>
         </Col>
-    </>
+    );
 }
