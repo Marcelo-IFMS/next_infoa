@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { Button, Form, Container, Row, Col, Modal, Spinner  } from 'react-bootstrap';
+import { Button, Form, Container, Row, Col, Modal, Spinner } from 'react-bootstrap';
 
 export default function Postnoticia() {
     const [titulonoticia, setTitulo] = useState("");
     const [conteudonoticia, setConteudo] = useState("");
     const [tiponoticia, setTipo] = useState("");
-    const [loading, setLoading] = useState(true);
- 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
     const enviarPost = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        setShow(true);
         const body = {
             titulonoticia,
             conteudonoticia,
@@ -31,17 +32,31 @@ export default function Postnoticia() {
             console.error("Erro ao enviar:", err);
             alert("Erro ao enviar notícia.");
         } finally {
-            setLoading(false); 
+            setShow(false);
         }
     }
     return (
         <Container>
             {/* Modal */}
-            <Modal show={loading} centered backdrop="static" keyboard={false}>
-                <Modal.Body className="text-center">
-                    <Spinner animation="border" role="status" />
-                    <p className="mt-3 mb-0">Enviando dados, aguarde...</p>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal title</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    I will not close if you click outside me. Do not even try to press
+                    escape key.
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary">Understood</Button>
+                </Modal.Footer>
             </Modal>
             {/* FORM */}
             <Row>
@@ -76,6 +91,6 @@ export default function Postnoticia() {
                     </Form>
                 </Col>
             </Row>
-        </Container>
+        </Container >
     )
 }
