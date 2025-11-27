@@ -6,6 +6,6 @@ export default function Cards({noticia}) {
 
     const isHome = pathname === "/";
     return <>
-        ${noticia.idnoticia}
+        {noticia.idnoticia}
     </>
 }
