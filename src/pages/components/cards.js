@@ -1,7 +1,7 @@
 "use client";
 import { Card, Col } from "react-bootstrap";
 import { usePathname } from "next/navigation";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Cards(noticia) {
     const [truncate, setTruncate] = useState("");
