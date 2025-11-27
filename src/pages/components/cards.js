@@ -12,9 +12,7 @@ export default function Cards(noticia) {
                         <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a>
                     </Card.Title>
                     <Card.Text>
-                        <p className="text-truncate">
-                            {noticia.conteudonoticia}
-                        </p>
+                        {noticia.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>{new Date(noticia.datahoracadastro).toLocaleString("pt-br")}</Card.Footer>
