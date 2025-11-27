@@ -5,12 +5,12 @@ export default function Postnoticia() {
     const [titulonoticia, setTitulo] = useState("");
     const [conteudonoticia, setConteudo] = useState("");
     const [tiponoticia, setTipo] = useState("");
+    const [ResultadoCadastro, setResultadoCadastro] = useState("");
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const enviarPost = async (e) => {
         e.preventDefault();
-        setShow(true);
         const body = {
             titulonoticia,
             conteudonoticia,
@@ -24,12 +24,12 @@ export default function Postnoticia() {
                 },
                 body: JSON.stringify(body)
             });
-
             const result = await response.json();
-            console.log("API respondeu:", result);
-            
+            setResultadoCadastro("Notícia: "+result.status);
+            setShow(true);
         } catch (err) {
-            console.error("Erro ao enviar:", err);
+            setShow(true);
+            setResultadoCadastro("Erro ao enviar notícia:"+err);
             //alert("Erro ao enviar notícia.");
         }
     }
@@ -46,14 +46,12 @@ export default function Postnoticia() {
                     <Modal.Title>Modal title</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    I will not close if you click outside me. Do not even try to press
-                    escape key.
+                   {ResultadoCadastro}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Fechar
                     </Button>
-                    <Button variant="primary">Understood</Button>
                 </Modal.Footer>
             </Modal>
             {/* FORM */}
