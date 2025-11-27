@@ -57,10 +57,9 @@ export default function Tablelist(props) {
                 {props.conteudonoticia}
             </td>
             <td>
-                {new Date(props.datahoracadastro)
-                    .toISOString()
-                    .replace("T", " ")
-                    .substring(0, 19)}
+                  {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
+                        ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
+                        : "Data inválida"}
             </td>
             <td>
                 update
