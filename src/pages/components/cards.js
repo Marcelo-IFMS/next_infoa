@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from 'react';
 
-export default function Cards({noticia}) {
+export default function Cards(props) {
     const [truncate, setTruncate] = useState("");
     const pathname = usePathname();
     useEffect(() => {
@@ -14,20 +14,20 @@ export default function Cards({noticia}) {
         }
     }, [pathname]);
     return <>
-        <Col key={noticia.idnoticia}>
+        <Col key={props.idnoticia}>
             <Card>
                 <Card.Header className="text-center fw-bold bg-warning-subtle">
-                    <a href={`/noticias/${noticia.idnoticia}`}>{/* altera aqui */}{noticia.titulonoticia}</a>
+                    <a href={`/noticias/${props.idnoticia}`}>{/* altera aqui */}{props.titulonoticia}</a>
                 </Card.Header>
                 <Card.Body>
                     <Card.Title className="text-capitalize">
-                        <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a>
+                        <a href={`/noticias/tipo/${props.tiponoticia}`}>{props.tiponoticia}</a>
                     </Card.Title>
                     <Card.Text className={truncate}>
-                        {noticia.conteudonoticia}
+                        {props.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer>{new Date(noticia.datahoracadastro).toLocaleString("pt-br")}</Card.Footer>
+                <Card.Footer>{new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)}</Card.Footer>
             </Card>
         </Col>
     </>

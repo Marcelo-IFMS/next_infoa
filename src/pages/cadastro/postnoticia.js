@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Container, Row, Col, Modal, Spinner } from 'react-bootstrap';
+import { Button, Form, Container, Row, Col, Modal } from 'react-bootstrap';
 
 export default function Postnoticia() {
     const [titulonoticia, setTitulo] = useState("");
