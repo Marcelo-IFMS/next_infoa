@@ -1,3 +1,4 @@
+"use client";
 import { Card, Col } from "react-bootstrap";
 import { usePathname } from "next/navigation";
 
