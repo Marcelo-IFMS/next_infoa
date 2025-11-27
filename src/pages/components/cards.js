@@ -1,6 +1,10 @@
 import { Card, Col } from "react-bootstrap";
+import { usePathname } from "next/navigation";
 
 export default function Cards(noticia) {
+    const pathname = usePathname();
+
+    const isHome = pathname === "/";
     return <>
         <Col key={noticia.idnoticia}>
             <Card>
@@ -11,7 +15,7 @@ export default function Cards(noticia) {
                     <Card.Title className="text-capitalize">
                         <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a>
                     </Card.Title>
-                    <Card.Text className="text-truncate">
+                    <Card.Text className={isHome ? "text-truncate" : ""}>
                         {noticia.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
