@@ -13,10 +13,12 @@ export default function Home({ noticias }) {
       <Row xs={1} md={2} lg={3} className="g-4 pt-2">
         {Array.isArray(noticias) ?
           noticias.map(noticia =>
-            <Cards idnoticia={noticia._id} /* alterar aqui */titulonoticia={noticia.titulonoticia}
-              tiponoticia={noticia.tiponoticia} conteudonoticia={noticia.conteudonoticia}
+            <Cards idnoticia={noticia._id} /* alterar aqui */
+              titulonoticia={noticia.titulonoticia}
+              tiponoticia={noticia.tiponoticia}
+              conteudonoticia={noticia.conteudonoticia}
               datahoracadastro={noticia.datahoracadastro} />
-          ): "falso"}
+          ) : "falso"}
       </Row>
     </Container>
   );
