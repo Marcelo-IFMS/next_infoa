@@ -6,12 +6,16 @@ export default function Cards(noticia) {
             <Card>
                 <Card.Header className="text-center fw-bold bg-warning-subtle">
                     <a href={`/noticias/${noticia.idnoticia}`}>{/* altera aqui */}{noticia.titulonoticia}</a>
-                    </Card.Header>
+                </Card.Header>
                 <Card.Body>
                     <Card.Title className="text-capitalize">
-                       <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a> 
-                        </Card.Title>
-                    <Card.Text> {noticia.conteudonoticia}</Card.Text>
+                        <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a>
+                    </Card.Title>
+                    <Card.Text>
+                        <p className="text-truncate">
+                            {noticia.conteudonoticia}
+                        </p>
+                    </Card.Text>
                 </Card.Body>
                 <Card.Footer>{new Date(noticia.datahoracadastro).toLocaleString("pt-br")}</Card.Footer>
             </Card>

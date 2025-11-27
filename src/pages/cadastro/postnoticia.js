@@ -5,7 +5,7 @@ export default function Postnoticia() {
     const [titulonoticia, setTitulo] = useState("");
     const [conteudonoticia, setConteudo] = useState("");
     const [tiponoticia, setTipo] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
  
     const enviarPost = async (e) => {
         e.preventDefault();
@@ -31,7 +31,7 @@ export default function Postnoticia() {
             console.error("Erro ao enviar:", err);
             alert("Erro ao enviar notícia.");
         } finally {
-            setLoading(false);
+            setLoading(false); 
         }
     }
     return (
