@@ -1,18 +1,10 @@
-"use client";
 import { Card, Col } from "react-bootstrap";
 import { usePathname } from "next/navigation";
-import { useState } from 'react';
 
 export default function Cards(noticia) {
-    const [truncate, setTruncate] = useState("");
     const pathname = usePathname();
-    useEffect(() => {
-        if (pathname === "/") {
-            setTruncate("text-truncate");
-        } else {
-            setTruncate("");
-        }
-    }, [pathname]);
+
+    const isHome = pathname === "/";
     return <>
         <Col key={noticia.idnoticia}>
             <Card>
@@ -23,7 +15,7 @@ export default function Cards(noticia) {
                     <Card.Title className="text-capitalize">
                         <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a>
                     </Card.Title>
-                    <Card.Text className={truncate}>
+                    <Card.Text className="text-truncate">
                         {noticia.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
