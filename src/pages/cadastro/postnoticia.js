@@ -25,6 +25,7 @@ export default function Postnoticia() {
                 body: JSON.stringify(body)
             });
             const result = await response.json();
+            console.log(result);
             setResultadoCadastro("Notícia: "+result.status);
             setShow(true);
         } catch (err) {
