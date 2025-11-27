@@ -6,7 +6,7 @@ export default function Cards({noticia}) {
 
     const isHome = pathname === "/";
     return <>
-        <Col key={noticia.idnoticia}>
+        <Col>
             <Card>
                 <Card.Header className="text-center fw-bold bg-warning-subtle">
                     <a href={`/noticias/${noticia.idnoticia}`}>{/* altera aqui */}{noticia.titulonoticia}</a>
