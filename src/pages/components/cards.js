@@ -6,10 +6,10 @@ export default function Cards({noticia}) {
 
     const isHome = pathname === "/";
     return <>
-        <Col>
+        <Col key={noticia.idnoticia}>
             <Card>
                 <Card.Header className="text-center fw-bold bg-warning-subtle">
-                    <a href={`/noticias/${noticia.idnoticia}`}>{/* altera aqui */}{noticia.titulonoticia}</a>
+                    <a href={`/noticias/`}>{/* altera aqui */}{noticia.titulonoticia}</a>
                 </Card.Header>
                 <Card.Body>
                     <Card.Title className="text-capitalize">
