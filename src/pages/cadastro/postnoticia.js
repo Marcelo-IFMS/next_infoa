@@ -27,10 +27,10 @@ export default function Postnoticia() {
 
             const result = await response.json();
             console.log("API respondeu:", result);
-            alert("Notícia enviada com sucesso!");
+            //alert("Notícia enviada com sucesso!");
         } catch (err) {
             console.error("Erro ao enviar:", err);
-            alert("Erro ao enviar notícia.");
+            //alert("Erro ao enviar notícia.");
         } finally {
             setShow(false);
         }
