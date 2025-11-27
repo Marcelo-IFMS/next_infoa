@@ -15,7 +15,7 @@ export default function Cards(noticia) {
                     <Card.Title className="text-capitalize">
                         <a href={`/noticias/tipo/${noticia.tiponoticia}`}>{noticia.tiponoticia}</a>
                     </Card.Title>
-                    <Card.Text className={isHome ? "text-truncate" : ""}>
+                    <Card.Text className={isHome ? "text-truncate" : undefined}>
                         {noticia.conteudonoticia}
                     </Card.Text>
                 </Card.Body>
