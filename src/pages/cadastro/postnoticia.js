@@ -25,12 +25,13 @@ export default function Postnoticia() {
                 body: JSON.stringify(body)
             });
             const result = await response.json();
-            console.log(result);
-            setResultadoCadastro("Notícia: "+result.status);
+            if (!result.status)
+                setResultadoCadastro("Erro ao cadastrar notícia:");
+            setResultadoCadastro("Notícia cadastrada com sucesso!");
             setShow(true);
         } catch (err) {
             setShow(true);
-            setResultadoCadastro("Erro ao enviar notícia:"+err);
+            setResultadoCadastro("Erro ao enviar notícia:" + err);
             //alert("Erro ao enviar notícia.");
         }
     }
@@ -47,7 +48,7 @@ export default function Postnoticia() {
                     <Modal.Title>Modal title</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                   {ResultadoCadastro}
+                    {ResultadoCadastro}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
