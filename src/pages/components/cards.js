@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from 'react';
 
-export default function Cards(noticia) {
+export default function Cards({noticia}) {
     const [truncate, setTruncate] = useState("");
     const pathname = usePathname();
     useEffect(() => {
