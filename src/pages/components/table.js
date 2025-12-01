@@ -23,7 +23,7 @@ export default function Tablelist(props) {
             alert(body._id)
             try {
                 const response = await fetch(`https://g3-snowy.vercel.app/delnoticia`, {
-                    method: "delete",
+                    method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
                     },
