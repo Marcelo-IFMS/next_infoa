@@ -9,7 +9,7 @@ export default function Tablelist(props) {
     const [ResultadoCadastro, setResultadoCadastro] = useState("");
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => { setShow(false); window.location.reload(); }
     useEffect(() => {
         if (pathname === "/") {
             setTruncate("text-truncate");
@@ -39,7 +39,7 @@ export default function Tablelist(props) {
                     setResultadoCadastro("Erro ao deletar notícia");
                 setResultadoCadastro("Notícia apagada com sucesso!");
                 // Atualizar a página após a exclusão
-                window.location.reload();
+
                 setShow(true);
             } catch (err) {
                 setResultadoCadastro("Erro ao deletar notícia: " + err);
