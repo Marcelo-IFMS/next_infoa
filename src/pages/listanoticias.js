@@ -2,7 +2,7 @@ import { Container, Row, Table } from 'react-bootstrap';
 import Tablelist from './components/table';
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch('https://g3-snowy.vercel.app/noticias')
+  const res = await fetch('https://api6anoticias.vercel.app/noticias')
   const repo = await res.json()
   // Pass data to the page via props
   return { props: { noticias: repo } }
