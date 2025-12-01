@@ -35,7 +35,7 @@ export default function Tablelist(props) {
                     alert("Erro ao deletar notícia:");
                 alert("Notícia deletada com sucesso!");
                 // Atualizar a página após a exclusão
-                window.location.reload();
+               // window.location.reload();
             } catch (err) {
                 alert("Erro ao deletar notícia:" + err);
             }
