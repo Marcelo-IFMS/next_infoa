@@ -24,7 +24,6 @@ export default function Tablelist(props) {
             const body = {
                 _id: idnoticia
             };
-            alert(body._id)
             try {
                 const response = await fetch(`https://g3-snowy.vercel.app/delnoticias`, {
                     method: "DELETE",
