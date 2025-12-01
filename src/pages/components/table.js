@@ -74,6 +74,7 @@ export default function Tablelist(props) {
                 </a>
             </td>
             <td className="text-capitalize">
+                {props.titulonoticia} -
                 <a href={`/noticias/tipo/${props.tiponoticia}`}>
                     {props.tiponoticia}
                 </a>

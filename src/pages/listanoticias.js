@@ -18,7 +18,7 @@ export default function Listanoticias({ noticias }) {
               ID
             </th>
             <th className="text-center fw-bold bg-warning-subtle">
-              Titulo
+              Titulo - Tipo
             </th> <th className="text-center fw-bold bg-warning-subtle">
               Conteudo
             </th>
