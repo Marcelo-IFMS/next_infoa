@@ -13,7 +13,7 @@ export async function updateNoticiaRequest(id, titulo, conteudo, tipo) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body)
         });
-
+        console.log(response);
         return await response.json();
 
     } catch (err) {
