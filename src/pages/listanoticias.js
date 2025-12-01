@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from 'react';
 import { Button, Modal } from "react-bootstrap";
-import { delNoticiaRequest } from "./delnoticias";  // <-- IMPORTANTE
+import { delNoticiaRequest } from "./noticias/delnoticias";  // <-- IMPORTANTE
 
 export default function Tablelist(props) {
 
