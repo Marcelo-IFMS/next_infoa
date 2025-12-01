@@ -56,7 +56,7 @@ export default function Tablelist(props) {
         e.preventDefault();
 
         const result = await updateNoticiaRequest(
-            props.idnoticia,
+            props._id,
             titulo,
             conteudo,
             tipo
