@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Button, Modal, Form } from "react-bootstrap";
 
 import { delNoticiaRequest } from "../../utils/delnoticias";
-import { updateNoticiaRequest } from "../../utils/updatenoticias";
+import { updateNoticiaRequest } from "../../utils/putnoticias";
 
 export default function Tablelist(props) {
 
