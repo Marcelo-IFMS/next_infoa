@@ -1,51 +1,82 @@
-import { Container, Row, Table } from 'react-bootstrap';
-import Tablelist from './components/table';
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch('https://g3-snowy.vercel.app/noticias')
-  const repo = await res.json()
-  // Pass data to the page via props
-  return { props: { noticias: repo } }
-}
-export default function Listanoticias({ noticias }) {
- 
-  return (<>
-    <Container className="mb-5">
-      <Table bordered hover responsive className="mb-3">
-        <thead>
-          <tr>
-            <th className="text-center fw-bold bg-warning-subtle">
-              ID
-            </th>
-            <th className="text-center fw-bold bg-warning-subtle">
-              Titulo - Tipo
-            </th> <th className="text-center fw-bold bg-warning-subtle">
-              Conteudo
-            </th>
-            <th className="text-center fw-bold bg-warning-subtle">
-              data
-            </th><th className="text-center fw-bold bg-warning-subtle">
-              Update
-            </th><th className="text-center fw-bold bg-warning-subtle">
-              Delete
-            </th>
-          </tr>
-        </thead>
+"use client";
 
-        <tbody>
-          {Array.isArray(noticias) ?
-            noticias.map(noticia =>
-              <tr>
-                <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
-                  titulonoticia={noticia.titulonoticia}
-                  tiponoticia={noticia.tiponoticia}
-                  conteudonoticia={noticia.conteudonoticia}
-                  datahoracadastro={noticia.datahoracadastro} />
-              </tr>
-            ) : "falso"}
-        </tbody>
-      </Table>
-    </Container>
-  </>
-  );
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { Button, Modal } from "react-bootstrap";
+import { delNoticiaRequest } from "./delnoticias";  // <-- IMPORTANTE
+
+export default function Tablelist(props) {
+
+    const [truncate, setTruncate] = useState("");
+    const pathname = usePathname();
+    const [ResultadoCadastro, setResultadoCadastro] = useState("");
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => { 
+        setShow(false); 
+        window.location.reload(); 
+    };
+
+    useEffect(() => {
+        if (pathname === "/") {
+            setTruncate("text-truncate");
+        } else {
+            setTruncate("");
+        }
+    }, [pathname]);
+
+    return (
+        <>
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Notícia</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {ResultadoCadastro}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Fechar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <td className="text-capitalize">
+                <a href={`/noticias/${props.idnoticia}`}>
+                    {props.idnoticia}
+                </a>
+            </td>
+
+            <td className="text-capitalize">
+                {props.titulonoticia} -
+                <a href={`/noticias/tipo/${props.tiponoticia}`}>
+                    {props.tiponoticia}
+                </a>
+            </td>
+
+            <td className={[truncate, "text-truncate"].filter(Boolean).join(" ")} style={{ maxWidth: "500px" }}>
+                {props.conteudonoticia}
+            </td>
+
+            <td>
+                {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
+                    ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
+                    : "Data inválida"}
+            </td>
+
+            <td>update</td>
+
+            <td>
+                <a href="#" 
+                   onClick={delNoticiaRequest(
+                       props.idnoticia, 
+                       setResultadoCadastro, 
+                       setShow
+                   )}
+                >
+                    delete
+                </a>
+            </td>
+        </>
+    );
 }
