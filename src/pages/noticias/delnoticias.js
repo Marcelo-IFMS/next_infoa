@@ -1,4 +1,4 @@
-export function delNoticiaRequest(idnoticia, setResultadoCadastro, setShow) {
+export default function delNoticiaRequest(idnoticia, setResultadoCadastro, setShow) {
     return async (e) => {
         e.preventDefault();
 
