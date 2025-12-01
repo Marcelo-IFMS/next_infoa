@@ -57,7 +57,7 @@ export default function Tablelist(props) {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                    <Modal.Title>Notícia</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {ResultadoCadastro}
