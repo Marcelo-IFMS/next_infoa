@@ -15,7 +15,6 @@ export async function updateNoticiaRequest(id, titulo, conteudo, tipo) {
             },
             body: JSON.stringify(body)
         });
-        console.log(response);
         return await response.json();
 
     } catch (err) {

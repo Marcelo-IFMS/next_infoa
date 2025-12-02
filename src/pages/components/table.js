@@ -34,15 +34,15 @@ export default function Tablelist(props) {
     }
 
     // fecha modal delete
-    const handleCloseDel = () => { 
-        setShowDel(false); 
-        window.location.reload(); 
+    const handleCloseDel = () => {
+        setShowDel(false);
+        window.location.reload();
     };
 
     // fecha modal update
-    const handleCloseUpdate = () => { 
-        setShowUpdate(false); 
-        window.location.reload(); 
+    const handleCloseUpdate = () => {
+        setShowUpdate(false);
+        window.location.reload();
     };
 
     // lógica truncate
@@ -54,7 +54,7 @@ export default function Tablelist(props) {
     // enviar atualização
     async function enviarUpdate(e) {
         e.preventDefault();
-
+        console.log(e)
         const result = await updateNoticiaRequest(
             props._id,
             titulo,
