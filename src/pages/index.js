@@ -5,6 +5,7 @@ export async function getServerSideProps() {
   const res = await fetch('https://api6anoticias.vercel.app/noticias')
   const repo = await res.json()
   // Pass data to the page via props
+  console.log(repo);
   return { props: { noticias: repo } }
 }
 export default function Home({ noticias }) {
