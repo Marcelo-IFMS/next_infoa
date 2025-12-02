@@ -29,7 +29,7 @@ export default function Tablelist(props) {
     function openUpdateModal() {
         setTitulo(props.titulonoticia);
         setConteudo(props.conteudonoticia);
-        setTipo(props.tiponoticia);
+        setTiponoticia(props.tiponoticia);
         setShowUpdate(true);
     }
 
