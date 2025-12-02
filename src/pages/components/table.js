@@ -23,7 +23,7 @@ export default function Tablelist(props) {
     // campos do update
     const [titulo, setTitulo] = useState("");
     const [conteudo, setConteudo] = useState("");
-    const [tipo, setTipo] = useState("");
+    const [tiponoticia, setTiponoticia] = useState("");
 
     // abre modal update e preenche
     function openUpdateModal() {
@@ -59,7 +59,7 @@ export default function Tablelist(props) {
             props._id,
             titulo,
             conteudo,
-            tipo
+            tiponoticia
         );
 
         if (!result.status) {
@@ -113,8 +113,8 @@ export default function Tablelist(props) {
                         </Form.Group>
 
                         <Form.Group className="mb-3">
-                            <Form.Label>Tipo</Form.Label>
-                            <Form.Select value={tipo} onChange={(e) => setTipo(e.target.value)}>
+                            <Form.Label>Tipo Notícia</Form.Label>
+                            <Form.Select value={tiponoticia} onChange={(e) => setTiponoticia(e.target.value)}>
                                 <option value="Ciência">Ciência</option>
                                 <option value="Educação">Educação</option>
                                 <option value="Pesquisa">Pesquisa</option>
