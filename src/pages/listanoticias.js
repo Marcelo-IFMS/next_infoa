@@ -11,7 +11,7 @@ export default function Listanoticias({ noticias }) {
 
   return (<>
     <Container className="mb-5">
-      <Table bordered hover responsive className="mb-3">
+      <Table bordered hover responsive className="mb-3 table">
         <thead>
           <tr>
             <th className="text-center fw-bold bg-warning-subtle">
@@ -32,7 +32,7 @@ export default function Listanoticias({ noticias }) {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(noticias) ?
+          {
             noticias.map(noticia =>
 
               <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
@@ -41,7 +41,7 @@ export default function Listanoticias({ noticias }) {
                 conteudonoticia={noticia.conteudonoticia}
                 datahoracadastro={noticia.datahoracadastro} />
 
-            ) : "falso"}
+            )}
         </tbody>
       </Table>
     </Container>
