@@ -54,24 +54,21 @@ export default function Tablelist(props) {
     // enviar atualização
     async function enviarUpdate(e) {
         e.preventDefault();
-        console.log(e)
+
         const result = await updateNoticiaRequest(
             props.idnoticia,
             titulo,
             conteudo,
             tiponoticia
         );
-
         if (!result.status) {
             setResultadoCadastro("Erro ao atualizar notícia.");
         } else {
             setResultadoCadastro("Notícia atualizada com sucesso!");
         }
-
         setShowUpdate(false);
         setShowDel(true); // usa modal já existente para feedback
     }
-
     return (
         <>
             {/* Modal Delete */}
@@ -84,13 +81,11 @@ export default function Tablelist(props) {
                     <Button variant="secondary" onClick={handleCloseDel}>Fechar</Button>
                 </Modal.Footer>
             </Modal>
-
             {/* Modal UPDATE */}
             <Modal show={showUpdate} onHide={handleCloseUpdate}>
                 <Modal.Header closeButton>
                     <Modal.Title>Atualizar Notícia</Modal.Title>
                 </Modal.Header>
-
                 <Modal.Body>
                     <Form onSubmit={enviarUpdate}>
                         <Form.Group className="mb-3">
@@ -101,7 +96,6 @@ export default function Tablelist(props) {
                                 onChange={(e) => setTitulo(e.target.value)}
                             />
                         </Form.Group>
-
                         <Form.Group className="mb-3">
                             <Form.Label>Conteúdo</Form.Label>
                             <Form.Control
@@ -111,7 +105,6 @@ export default function Tablelist(props) {
                                 onChange={(e) => setConteudo(e.target.value)}
                             />
                         </Form.Group>
-
                         <Form.Group className="mb-3">
                             <Form.Label>Tipo Notícia</Form.Label>
                             <Form.Select value={tiponoticia} onChange={(e) => setTiponoticia(e.target.value)}>
@@ -130,35 +123,29 @@ export default function Tablelist(props) {
                     </Form>
                 </Modal.Body>
             </Modal>
-
             {/* Tabela */}
             <td className="text-capitalize">
                 <a href={`/noticias/${props.idnoticia}`}>{props.idnoticia}</a>
             </td>
-
             <td className="text-capitalize">
                 {props.titulonoticia} -
                 <a href={`/noticias/tipo/${props.tiponoticia}`}>{props.tiponoticia}</a>
             </td>
-
             <td className={[truncate, "text-truncate"].filter(Boolean).join(" ")} style={{ maxWidth: "500px" }}>
                 {props.conteudonoticia}
             </td>
-
             <td>
                 {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
                     ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
                     : "Data inválida"}
             </td>
-
             <td>
                 <a href="#" onClick={openUpdateModal}>update</a>
             </td>
-
             <td>
                 <a
                     href="#"
-                    onClick={delNoticiaRequest(
+                    onClick={()=>delNoticiaRequest(
                         props.idnoticia,
                         setResultadoCadastro,
                         setShowDel
