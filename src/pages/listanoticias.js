@@ -35,13 +35,13 @@ export default function Listanoticias({ noticias }) {
         <tbody>
           {Array.isArray(noticias) ?
             noticias.map(noticia =>
-              <tr>
+              
                 <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
                   titulonoticia={noticia.titulonoticia}
                   tiponoticia={noticia.tiponoticia}
                   conteudonoticia={noticia.conteudonoticia}
                   datahoracadastro={noticia.datahoracadastro} />
-              </tr>
+              
             ) : "falso"}
         </tbody>
       </Table>

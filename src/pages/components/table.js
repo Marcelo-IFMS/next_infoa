@@ -123,37 +123,39 @@ export default function Tablelist(props) {
                     </Form>
                 </Modal.Body>
             </Modal>
-            {/* Tabela */}
-            <td className="text-capitalize">
-                <a href={`/noticias/${props.idnoticia}`}>{props.idnoticia}</a>
-            </td>
-            <td className="text-capitalize">
-                {props.titulonoticia} -
-                <a href={`/noticias/tipo/${props.tiponoticia}`}>{props.tiponoticia}</a>
-            </td>
-            <td className={[truncate, "text-truncate"].filter(Boolean).join(" ")} style={{ maxWidth: "500px" }}>
-                {props.conteudonoticia}
-            </td>
-            <td>
-                {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
-                    ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
-                    : "Data inválida"}
-            </td>
-            <td>
-                <a href="#" onClick={openUpdateModal}>update</a>
-            </td>
-            <td>
-                <a
-                    href="#"
-                    onClick={()=>delNoticiaRequest(
-                        props.idnoticia,
-                        setResultadoCadastro,
-                        setShowDel
-                    )}
-                >
-                    delete
-                </a>
-            </td>
+            <tr>
+                {/* Tabela */}
+                <td className="text-capitalize">
+                    <a href={`/noticias/${props.idnoticia}`}>{props.idnoticia}</a>
+                </td>
+                <td className="text-capitalize">
+                    {props.titulonoticia} -
+                    <a href={`/noticias/tipo/${props.tiponoticia}`}>{props.tiponoticia}</a>
+                </td>
+                <td className={[truncate, "text-truncate"].filter(Boolean).join(" ")} style={{ maxWidth: "500px" }}>
+                    {props.conteudonoticia}
+                </td>
+                <td>
+                    {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
+                        ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
+                        : "Data inválida"}
+                </td>
+                <td>
+                    <a href="#" onClick={openUpdateModal}>update</a>
+                </td>
+                <td>
+                    <a
+                        href="#"
+                        onClick={() => delNoticiaRequest(
+                            props.idnoticia,
+                            setResultadoCadastro,
+                            setShowDel
+                        )}
+                    >
+                        delete
+                    </a>
+                </td>
+            </tr>
         </>
     );
 }
