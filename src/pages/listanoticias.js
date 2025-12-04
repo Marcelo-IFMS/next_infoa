@@ -12,33 +12,38 @@ export default function Listanoticias({ noticias }) {
   return (<>
     <Container className="mb-5">
       <Table bordered hover responsive className="mb-3">
-        <tr>
-          <th className="text-center fw-bold bg-warning-subtle">
-            ID
-          </th>
-          <th className="text-center fw-bold bg-warning-subtle">
-            Titulo - Tipo
-          </th> <th className="text-center fw-bold bg-warning-subtle">
-            Conteudo
-          </th>
-          <th className="text-center fw-bold bg-warning-subtle">
-            data
-          </th><th className="text-center fw-bold bg-warning-subtle">
-            Update
-          </th><th className="text-center fw-bold bg-warning-subtle">
-            Delete
-          </th>
-        </tr>
-        {Array.isArray(noticias) ?
-          noticias.map(noticia =>
+        <thead>
+          <tr>
+            <th className="text-center fw-bold bg-warning-subtle">
+              ID
+            </th>
+            <th className="text-center fw-bold bg-warning-subtle">
+              Titulo - Tipo
+            </th> <th className="text-center fw-bold bg-warning-subtle">
+              Conteudo
+            </th>
+            <th className="text-center fw-bold bg-warning-subtle">
+              data
+            </th><th className="text-center fw-bold bg-warning-subtle">
+              Update
+            </th><th className="text-center fw-bold bg-warning-subtle">
+              Delete
+            </th>
+          </tr>
+        </thead>
 
-            <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
-              titulonoticia={noticia.titulonoticia}
-              tiponoticia={noticia.tiponoticia}
-              conteudonoticia={noticia.conteudonoticia}
-              datahoracadastro={noticia.datahoracadastro} />
+        <tbody>
+          {Array.isArray(noticias) ?
+            noticias.map(noticia =>
 
-          ) : "falso"}
+              <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
+                titulonoticia={noticia.titulonoticia}
+                tiponoticia={noticia.tiponoticia}
+                conteudonoticia={noticia.conteudonoticia}
+                datahoracadastro={noticia.datahoracadastro} />
+
+            ) : "falso"}
+        </tbody>
       </Table>
     </Container>
   </>
