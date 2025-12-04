@@ -69,6 +69,7 @@ export default function Tablelist(props) {
         setShowUpdate(false);
         setShowDel(true); // usa modal já existente para feedback
     }
+    const dataValida = props.datahoracadastro ? new Date(props.datahoracadastro) : null;
     return (
         <>
             {/* Modal Delete */}
@@ -136,9 +137,11 @@ export default function Tablelist(props) {
                     {props.conteudonoticia}
                 </td>
                 <td>
-                    {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
-                        ? new Date(props.datahoracadastro).toLocaleDateString()
-                        : "Data inválida"}
+                  
+
+                        {dataValida && !isNaN(dataValida)
+                            ? dataValida.toLocaleDateString()
+                            : "Data inválida"}
 
                 </td>
                 <td>
