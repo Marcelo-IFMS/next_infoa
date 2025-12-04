@@ -136,7 +136,9 @@ export default function Tablelist(props) {
                     {props.conteudonoticia}
                 </td>
                 <td>
-                   ola
+                    {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro).toLocaleDateString())
+                        ? new Date(props.datahoracadastro).toLocaleDateString()
+                        : "Data inválida"}
                 </td>
                 <td>
                     <a href="#" onClick={openUpdateModal}>update</a>
