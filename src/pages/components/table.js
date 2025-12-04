@@ -136,7 +136,7 @@ export default function Tablelist(props) {
                     {props.conteudonoticia}
                 </td>
                 <td>
-                    {new Date(props.datahoracadastro).toLocaleDateString()}
+                    {(props.datahoracadastro).toLocaleDateString()}
                 </td>
                 <td>
                     <a href="#" onClick={openUpdateModal}>update</a>
