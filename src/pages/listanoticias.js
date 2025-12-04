@@ -36,11 +36,46 @@ export default function Listanoticias({ noticias }) {
           {Array.isArray(noticias) ?
             noticias.map(noticia =>
 
-              <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
-                titulonoticia={noticia.titulonoticia}
-                tiponoticia={noticia.tiponoticia}
-                conteudonoticia={noticia.conteudonoticia}
-                datahoracadastro={noticia.datahoracadastro} />
+             <tr> <th className="text-center align-middle">
+                <a href={`/noticias/${noticia._id}`}>{noticia._id}</a>
+              </th>
+              <td className="align-middle">
+                <a href={`/noticias/${noticia._id}`}>{noticia.titulonoticia} - {noticia.tiponoticia}</a>
+              </td>
+              <td className="align-middle">
+                {noticia.conteudonoticia}
+              </td>
+              <td className="align-middle">
+                {new Date(noticia.datacadastro).toLocaleDateString('pt-BR', {
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })}
+              </td>
+              <td className="text-center align-middle">
+                <Tablelist
+                  idnoticia={noticia._id}
+                  titulonoticia={noticia.titulonoticia}
+                  conteudonoticia={noticia.conteudonoticia}
+                  tiponoticia={noticia.tiponoticia}
+                  datahoracadastro={noticia.datacadastro}
+                />
+              </td>
+              <td className="text-center align-middle">
+                <a
+                  href="#"
+                  onClick={() => delNoticiaRequest(
+                    noticia._id,
+                    setResultadoCadastro,
+                    setShowDel
+                  )}
+                >
+                  delete
+                </a>
+              </td>
+            </tr> 
 
             ) : "falso"}
         </tbody>
