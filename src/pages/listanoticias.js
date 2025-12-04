@@ -8,7 +8,7 @@ export async function getServerSideProps() {
   return { props: { noticias: repo } }
 }
 export default function Listanoticias({ noticias }) {
- 
+
   return (<>
     <Container className="mb-5">
       <Table bordered hover responsive className="mb-3">
@@ -35,13 +35,13 @@ export default function Listanoticias({ noticias }) {
         <tbody>
           {Array.isArray(noticias) ?
             noticias.map(noticia =>
-              
-                <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
-                  titulonoticia={noticia.titulonoticia}
-                  tiponoticia={noticia.tiponoticia}
-                  conteudonoticia={noticia.conteudonoticia}
-                  datahoracadastro={noticia.datahoracadastro} />
-              
+
+              <Tablelist key={noticia._id} idnoticia={noticia._id} /* alterar aqui */
+                titulonoticia={noticia.titulonoticia}
+                tiponoticia={noticia.tiponoticia}
+                conteudonoticia={noticia.conteudonoticia}
+                datahoracadastro={noticia.datahoracadastro} />
+
             ) : "falso"}
         </tbody>
       </Table>

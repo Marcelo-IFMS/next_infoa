@@ -71,58 +71,7 @@ export default function Tablelist(props) {
     }
     return (
         <>
-            {/* Modal Delete */}
-            <Modal show={showDel} onHide={handleCloseDel} backdrop="static" keyboard={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Notícia</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{ResultadoCadastro}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseDel}>Fechar</Button>
-                </Modal.Footer>
-            </Modal>
-            {/* Modal UPDATE */}
-            <Modal show={showUpdate} onHide={handleCloseUpdate}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Atualizar Notícia</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={enviarUpdate}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Título</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={titulo}
-                                onChange={(e) => setTitulo(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Conteúdo</Form.Label>
-                            <Form.Control
-                                as="textarea"
-                                rows={3}
-                                value={conteudo}
-                                onChange={(e) => setConteudo(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Tipo Notícia</Form.Label>
-                            <Form.Select value={tiponoticia} onChange={(e) => setTiponoticia(e.target.value)}>
-                                <option value="Ciência">Ciência</option>
-                                <option value="Educação">Educação</option>
-                                <option value="Pesquisa">Pesquisa</option>
-                                <option value="Esportes">Esportes</option>
-                                <option value="Cultura">Cultura</option>
-                                <option value="Entreterimento">Entreterimento</option>
-                            </Form.Select>
-                        </Form.Group>
-
-                        <Button variant="primary" type="submit">
-                            Salvar Alterações
-                        </Button>
-                    </Form>
-                </Modal.Body>
-            </Modal>
+        
             <tr>
                 {/* Tabela */}
                 <td className="text-capitalize">
