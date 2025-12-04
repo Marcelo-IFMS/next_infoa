@@ -139,9 +139,7 @@ export default function Tablelist(props) {
                 <td>
                   
 
-                        {dataValida && !isNaN(dataValida)
-                            ? dataValida.toLocaleDateString()
-                            : "Data inválida"}
+                        {dataValida }
 
                 </td>
                 <td>
