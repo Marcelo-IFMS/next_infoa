@@ -69,7 +69,6 @@ export default function Tablelist(props) {
         setShowUpdate(false);
         setShowDel(true); // usa modal já existente para feedback
     }
-    const dataValida = props.datahoracadastro ? new Date(props.datahoracadastro) : null;
     return (
         <>
             {/* Modal Delete */}
@@ -137,10 +136,9 @@ export default function Tablelist(props) {
                     {props.conteudonoticia}
                 </td>
                 <td>
-                  
-
-                        {dataValida }
-
+                    {props.datahoracadastro && !isNaN(new Date(props.datahoracadastro))
+                        ? new Date(props.datahoracadastro).toISOString().replace("T", " ").substring(0, 19)
+                        : "Data inválida"}
                 </td>
                 <td>
                     <a href="#" onClick={openUpdateModal}>update</a>
