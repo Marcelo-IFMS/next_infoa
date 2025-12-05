@@ -146,11 +146,12 @@ export default function Tablelist(props) {
                 <td>
                     <a
                         href="#"
-                        onClick={() => delNoticiaRequest(
+                        onClick={() => {alert("passou aqui");
+                            delNoticiaRequest(
                             props.idnoticia,
                             setResultadoCadastro,
                             setShowDel
-                        )}
+                        )}}
                     >
                         delete
                     </a>
