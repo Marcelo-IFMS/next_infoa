@@ -1,5 +1,4 @@
 export async function delNoticiaRequest(idnoticia, setResultadoCadastro, setShow) {
-    alert(idnoticia)
     return async (e) => {
         e.preventDefault();
         const body = { _id: idnoticia };
