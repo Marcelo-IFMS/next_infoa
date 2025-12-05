@@ -2,6 +2,7 @@ export function delNoticiaRequest(idnoticia, setResultadoCadastro, setShow) {
     return async (e) => {
         e.preventDefault();
         const body = { _id: idnoticia };
+        console.log(body);
         try {
             const response = await fetch(`https://api6anoticias.vercel.app/delnoticias`, {
                 method: "DELETE",
