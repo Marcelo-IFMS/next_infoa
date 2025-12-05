@@ -146,8 +146,8 @@ export default function Tablelist(props) {
                 <td>
                     <a
                         href="#"
-                        onClick={() => {alert("passou aqui");
-                            delNoticiaRequest(
+                        onClick={async () => {alert("passou aqui");
+                            await delNoticiaRequest(
                             props.idnoticia,
                             setResultadoCadastro,
                             setShowDel
