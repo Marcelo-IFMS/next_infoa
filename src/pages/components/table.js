@@ -67,7 +67,7 @@ export default function Tablelist(props) {
             setResultadoCadastro("Notícia atualizada com sucesso!");
         }
         setShowUpdate(false);
-        //setShowDel(true); // usa modal já existente para feedback
+        setShowDel(true); // usa modal já existente para feedback
     }
     async function handleDelete(e) {
         e.preventDefault();
