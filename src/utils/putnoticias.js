@@ -6,7 +6,6 @@ export async function updateNoticiaRequest(id, titulo, conteudo, tipo) {
         conteudonoticia: conteudo,
         tiponoticia: tipo
     };
-    console.log(body);
     try {
         const response = await fetch("https://api6anoticias.vercel.app/putnoticias", {
             method: "PUT",
