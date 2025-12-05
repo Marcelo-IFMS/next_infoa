@@ -69,6 +69,19 @@ export default function Tablelist(props) {
         setShowUpdate(false);
         setShowDel(true); // usa modal já existente para feedback
     }
+    async function handleDelete(e) {
+        e.preventDefault();
+        const result = await deleteNoticiaRequest(
+            props.idnoticia
+        );
+        alert(result)
+        if (!result.status) {
+            setResultadoCadastro("Erro ao deletar notícia");
+        } else {
+            setResultadoCadastro("Notícia apagada com sucesso!");
+        }
+        setShow(true);
+    }
     return (
         <>
             {/* Modal Delete */}
@@ -146,12 +159,7 @@ export default function Tablelist(props) {
                 <td>
                     <a
                         href="#"
-                        onClick={ () => {
-                             delNoticiaRequest(
-                            props.idnoticia,
-                            setResultadoCadastro,
-                            setShowDel
-                        )}}
+                        onClick={handleDelete}
                     >
                         delete
                     </a>
