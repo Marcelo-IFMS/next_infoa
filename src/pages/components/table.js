@@ -71,7 +71,7 @@ export default function Tablelist(props) {
     }
     async function handleDelete(e) {
         e.preventDefault();
-        const result = await deleteNoticiaRequest(
+        const result = await delNoticiaRequest(
             props.idnoticia
         );
         alert(result)
