@@ -24,7 +24,7 @@ export default function Noticia() {
         body: JSON.stringify(body)
       });
 
-      const result = await response.json();
+      const result =  await response.json();
       if (!result.status){
         alert("Erro: Notícia não cadastrada.");
       }
