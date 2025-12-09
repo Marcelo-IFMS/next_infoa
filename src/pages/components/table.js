@@ -74,7 +74,6 @@ export default function Tablelist(props) {
         const result = await delNoticiaRequest(
             props.idnoticia
         );
-        alert(result)
         if (!result.status) {
             setResultadoCadastro("Erro ao deletar notícia");
         } else {
